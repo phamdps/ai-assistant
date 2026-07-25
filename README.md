@@ -1,8 +1,22 @@
-# 🚀 An AI Assissant 
+# An AI Assistant
+
+This work illustrates the following topics:
+
+- Large Language Models (LLMs)
+- Embeddings
+- Vector Databases
+- Retrieval-Augmented Generation (RAG)
+- Prompt Engineering
+- AI Applications
+
+## Project Structure
+
+```
+docs/# 🚀 LLM, RAG & Vector Database Study Journey
 
 Welcome!
 
-This repository documents my end-to-end journey into **Large Language Models (LLMs)**, **Retrieval-Augmented Generation (RAG)**, and **Vector Databases**.
+This repository documents my end-to-end learning journey into **Large Language Models (LLMs)**, **Retrieval-Augmented Generation (RAG)**, and **Vector Databases**.
 
 Rather than simply reading about these topics, this repository focuses on building practical AI applications from the ground up.
 
@@ -10,9 +24,9 @@ Rather than simply reading about these topics, this repository focuses on buildi
 
 # 🎯 Objectives
 
-This work illustrates the following goals:
+By completing this repository:
 
-- How Large Language Models works
+- Understand how Large Language Models work
 - Learn embeddings and semantic search
 - Master Vector Databases
 - Build Retrieval-Augmented Generation (RAG) systems
@@ -185,3 +199,22 @@ Feel free to open an issue or submit a pull request.
 # ⭐ If You Find This Repository Helpful
 
 Please consider giving it a ⭐ to support the project.
+examples/
+projects/
+datasets/
+images/
+notebooks/
+src/
+```
+
+## Learning Path
+
+- Introduction to LLMs
+- Transformers
+- Embeddings
+- Vector Databases
+- RAG
+- Prompt Engineering
+- Build AI Applications
+
+Happy Learning!
