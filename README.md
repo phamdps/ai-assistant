@@ -12,11 +12,11 @@ This work illustrates the following topics:
 ## Project Structure
 
 ```
-docs/# 🚀 LLM, RAG & Vector Database Study Journey
+docs/# 🚀 LLM, RAG & Vector Database
 
 Welcome!
 
-This repository documents my end-to-end learning journey into **Large Language Models (LLMs)**, **Retrieval-Augmented Generation (RAG)**, and **Vector Databases**.
+This repository documents an end-to-end journey into **Large Language Models (LLMs)**, **Retrieval-Augmented Generation (RAG)**, and **Vector Databases**.
 
 Rather than simply reading about these topics, this repository focuses on building practical AI applications from the ground up.
 
@@ -217,4 +217,4 @@ src/
 - Prompt Engineering
 - Build AI Applications
 
-Happy Learning!
+Finish project!
