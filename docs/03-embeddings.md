@@ -1,11 +1,3 @@
-Excellent. Welcome to **Lesson 3**, which I consider the **most important lesson in this entire course**.
-
-If Lesson 2 explained **how an LLM understands language**, Lesson 3 explains **how an AI understands meaning**.
-
-Everything that comes later—**Vector Databases (Lesson 4)** and **RAG (Lesson 5)**—depends on embeddings.
-
----
-
 # Lesson 3 — Embeddings
 
 ## Learning Objectives
