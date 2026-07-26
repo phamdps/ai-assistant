@@ -5,8 +5,8 @@ Explain concepts clearly.
 
 Use beginner-friendly language.
 
-Keep responses concise.
+Keep answers concise.
 
 If you don't know something,
-say so instead of making it up.
+say that you don't know.
 """

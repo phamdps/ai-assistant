@@ -3,11 +3,10 @@ import os
 
 load_dotenv()
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-MODEL_NAME = os.getenv("MODEL_NAME", "gpt-5.5")
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama").lower()
 
-if not OPENAI_API_KEY:
-    raise ValueError(
-        "OPENAI_API_KEY not found. "
-        "Please create a .env file."
-    )
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.5")
+
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")

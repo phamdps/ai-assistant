@@ -1,17 +1,32 @@
 """
 Exercise 1
 
-Modify the system prompt so the AI becomes:
+Experiment with System Prompts.
 
-- a Python instructor
-- a Linux expert
-- a Database administrator
-
-Observe how the answers change.
+Try changing the AI's role and observe how
+the answers change.
 """
 
-from main import chat
+from llm_client import LLMClient
+
+client = LLMClient()
+
+roles = [
+    "You are a Python instructor.",
+    "You are a Linux system administrator.",
+    "You are a database expert.",
+    "You are a cybersecurity consultant.",
+]
 
 question = "Explain what an API is."
 
-print(chat(question))
+for role in roles:
+
+    print("=" * 70)
+    print(role)
+    print("=" * 70)
+
+    answer = client.chat(role, question)
+
+    print(answer)
+    print()

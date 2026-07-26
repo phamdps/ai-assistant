@@ -1,55 +1,35 @@
-from openai import APIError
-from client import client
-from config import MODEL_NAME
+from llm_client import LLMClient
 from prompts import SYSTEM_PROMPT
-
-
-def chat(question: str) -> str:
-    """
-    Send a prompt to the LLM
-    and return the response.
-    """
-
-    response = client.chat.completions.create(
-        model=MODEL_NAME,
-        temperature=0.7,
-        messages=[
-            {
-                "role": "system",
-                "content": SYSTEM_PROMPT,
-            },
-            {
-                "role": "user",
-                "content": question,
-            },
-        ],
-    )
-
-    return response.choices[0].message.content
 
 
 def main():
 
-    print("=" * 50)
+    print("=" * 60)
     print("Lesson 01 - Introduction to LLMs")
-    print("=" * 50)
+    print("=" * 60)
 
-    question = input("\nAsk a question:\n> ")
+    client = LLMClient()
 
-    try:
+    while True:
 
-        answer = chat(question)
+        question = input("\nAsk a question ('quit' to exit):\n> ")
 
-        print("\nAssistant:\n")
-        print(answer)
+        if question.lower() == "quit":
+            break
 
-    except APIError as e:
+        try:
 
-        print(f"\nOpenAI API Error:\n{e}")
+            answer = client.chat(
+                SYSTEM_PROMPT,
+                question,
+            )
 
-    except Exception as e:
+            print("\nAssistant:\n")
+            print(answer)
 
-        print(f"\nUnexpected Error:\n{e}")
+        except Exception as e:
+
+            print(f"\nError:\n{e}")
 
 
 if __name__ == "__main__":
