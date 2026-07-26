@@ -219,3 +219,6 @@ __marimo__/
 
 # Do not save in github
 xrefs/
+
+# Upload final
+exercises/
