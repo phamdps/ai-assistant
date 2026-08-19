@@ -88,21 +88,29 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
 # 📂 Repository Structure
 
 ```text
-docs/
-examples/
-  ├── 01_llm_basics/
-  ├── 02_mllm_vision_qwen_muse/  <-- Qwen2-VL & Muse Glimmer integration examples
-  ├── 03_surrealdb_and_postgis/
-  ├── 04_rag_pipelines/
-  ├── 05_mcp_agent_tools/
-  └── 06_langgraph_workflows/
-projects/
-  ├── chat_with_pdf/
-  └── transport_digital_twin/   <-- Capstone Agentic Digital Twin
-datasets/
-images/
-notebooks/
-src/
+ai-assistant/                 <-- Your existing GitHub Repository Root
+├── docs/
+├── examples/
+│   ├── 01_llm_basics/
+│   ├── 02_mllm_vision_qwen_muse/
+│   ├── 03_surrealdb_and_postgis/
+│   ├── 04_rag_pipelines/
+│   ├── 05_mcp_agent_tools/
+│   └── 06_langgraph_workflows/
+├── projects/
+│   └── chat_with_pdf/
+├── datasets/
+├── images/
+├── notebooks/
+├── src/
+├── README.md                 <-- Your main project README
+└── twin/                     <-- 🌟 NEW ISOLATED PACKAGE & CODE FOLDER
+    ├── README.md             <-- Documentation for the Twin module
+    ├── requirements.txt      <-- Dependencies specific to the Twin system
+    ├── simulation.py         <-- SimPy / Traffic network physics engine
+    ├── mcp_server.py         <-- Model Context Protocol server exposing twin data
+    ├── agent_workflow.py     <-- LangGraph multi-agent orchestration loop
+    └── main.py               <-- Executable entry point
 
 ```
 
