@@ -103,7 +103,7 @@ ai-assistant/                 <-- Your existing GitHub Repository Root
 ├── images/
 ├── notebooks/
 ├── src/
-├── README.md                 <-- Your main project README
+├── README.md                 <-- main project README
 └── twin/                     <-- 🌟 NEW ISOLATED PACKAGE & CODE FOLDER
     ├── README.md             <-- Documentation for the Twin module
     ├── requirements.txt      <-- Dependencies specific to the Twin system
