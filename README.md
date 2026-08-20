@@ -57,7 +57,11 @@ By completing this repository:
 
 ---
 
+<div align="center">
+
 # 🧠 Spotlight: SOTA Architecture of the Transportation Digital Twin
+
+</div>
 
 The capstone project models a **Generative Agentic Digital Twin** that bridges real-time telemetry with autonomous agentic action:
 
