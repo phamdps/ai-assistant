@@ -119,6 +119,37 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
 
 ---
 
+# 🚦 Agentic Transportation Digital Twin Control Center
+
+An advanced, real-time multi-agent urban intelligence system powered by **LangGraph**, **Google OR-Tools**, and **SurrealDB**. This control center monitors regional traffic telemetry, evaluates weather conditions, executes automated policy plans, and routes vehicles dynamically to eliminate bottlenecks.
+
+---
+
+## ✨ Key Dashboard Features
+
+* **🤖 Interactive Multi-Agent Workflow Graph:** Visualizes live data packet motion in real time across LangGraph nodes (`Perception`, `ReAct Planner`, `OR-Tools Matrix`, `Recovery Handler`, and `Active Control`).
+* **🕹️ Flexible Simulation Playback Modes:** Supports single-step inspections or continuous automated multi-step loops (expanding up to 20+ simulation steps).
+* **💬 Live Node-to-Directive Mapping:** Displays real-time agent reasoning text and operator recommendations directly below the workflow graph as data flows.
+* **🔍 Input Data Deep-Dive Tab:** Allows operators to inspect raw JSON payloads, environmental overrides, and sensor speed distributions to compare *why* and *when* agents trigger recovery protocols.
+* **💾 SurrealDB Audit Trail:** Automatically persists execution records, agent states, and historical telemetry for post-hoc analysis.
+
+---
+
+## 🏗️ Architecture & Workflow
+
+The digital twin processes traffic streams through a directed graph state machine:
+
+1. **🤖 Perception Agent:** Ingests camera feeds and sensor metrics to assess surface congestion levels.
+2. **⚙️ ReAct Planner:** Evaluates contextual scenarios and determines tactical response policies.
+3. **🧮 OR-Tools Matrix:** Applies optimization algorithms with weather friction multipliers (rain, fog, snow) to compute optimal routing.
+4. **🔄 Recovery Handler:** Engages automatically during critical bottlenecks or incidents to dispatch emergency routing.
+5. **🎯 Active Control:** The success node that locks in and applies final signal cadences and corridor directives.
+
+![Dashboard](images/agentic_control.png)
+
+
+---
+
 # 📈 Contributions & ⭐ Support
 
 Contributions, suggestions, and pull requests are welcome! If you find this cutting-edge repository helpful, please consider giving it a ⭐.
