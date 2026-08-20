@@ -1,10 +1,13 @@
+<div align="center">
+
 # 🚀 AI, LLM, RAG, MLLMs & Agentic Transportation Digital Twins
 
-Welcome!
+</div>
 
 This repository documents an end-to-end journey into **Large Language Models (LLMs)**, **Multimodal LLMs (MLLMs)**, **Retrieval-Augmented Generation (RAG)**, **Vector Databases**, and **Agentic AI Systems** applied to complex cyber-physical environments.
 
 Rather than simply reading about these topics, this repository focuses on building state-of-the-art, simulation-backed **Agentic Digital Twins** from the ground up using cutting-edge open and proprietary models.
+
 
 ---
 
