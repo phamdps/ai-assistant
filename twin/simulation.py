@@ -2,6 +2,7 @@ import simpy
 import random
 
 class TrafficSimulationEngine:
+    """SimPy discrete-event simulation engine modeling physical traffic flows."""
     def __init__(self, env: simpy.Environment):
         self.env = env
         self.queues = {"intersection_A": 45, "intersection_B": 12}

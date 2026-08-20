@@ -223,3 +223,9 @@ xrefs/
 # Upload final
 exercises/
 docs/
+twin_storage.db/
+examples/
+twin/dashboard.py
+twin/database.py
+twin/README.md
+datasets/
