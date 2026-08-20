@@ -29,7 +29,7 @@ By completing this repository:
 
 ---
 
-# 📚 Course Roadmap
+# 📚 Project Roadmap
 
 ## Module 1 — Foundations
 * Introduction to LLMs, Transformers, Attention Mechanisms, and Context Windows.
