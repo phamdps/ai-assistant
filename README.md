@@ -122,7 +122,11 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
 
 ---
 
+<div align="center">
+
 # 🚦 Agentic Transportation Digital Twin Control Center
+
+</div>
 
 An advanced, real-time multi-agent urban intelligence system powered by **LangGraph**, **Google OR-Tools**, and **SurrealDB**. This control center monitors regional traffic telemetry, evaluates weather conditions, executes automated policy plans, and routes vehicles dynamically to eliminate bottlenecks.
 
