@@ -8,6 +8,12 @@ Rather than simply reading about these topics, this repository focuses on buildi
 
 ---
 
+# 🎯 Architecture Diagram
+
+![Technical Architecture: Agentic Transportation Digital Twin](images/architecture.png)
+
+---
+
 # 🎯 Objectives
 
 By completing this repository:
@@ -16,41 +22,35 @@ By completing this repository:
 * Leverage state-of-the-art **Multimodal LLMs** (such as **Qwen2-VL** and Meta's **Muse Glimmer**) to parse live CCTV feeds, maps, and visual telemetry.
 * Build autonomous **AI Agents** capable of reasoning, planning, tool-calling, and failure recovery using the **ReAct framework** and **Model Context Protocol (MCP)**.
 * Interface MLLMs with deterministic mathematical optimization solvers (e.g., **Google OR-Tools**) for optimal routing.
-* Design, simulate, and deploy a production-grade **Transportation Digital Twin**.
+* Design, simulate, and deploy a production-grade **Transportation Digital Twin** that is **Environment-Aware** (weather, visibility, road conditions).
 
 ---
 
 # 📚 Course Roadmap
 
 ## Module 1 — Foundations
-
 * Introduction to LLMs, Transformers, Attention Mechanisms, and Context Windows.
 
-## Module 2 — Advanced Multimodal Foundations (MLLMs)
-
-* Vision-Language Models, spatial-temporal grounding, and processing live traffic camera streams using **Qwen2-VL** and **Meta Muse Glimmer**.
+## Module 2 — Advanced Multimodal Foundations (MLLMs) & Perception
+* Vision-Language Models, spatial-temporal grounding, and processing live traffic camera streams (CCTV) using **Qwen2-VL** and **Meta Muse Glimmer**.
+* **Weather & Environmental Perception:** Training agents to detect visibility, precipitation, and adverse surface conditions from video streams.
 
 ## Module 3 — Embeddings & Unified Digital Twin Databases
-
 * Vector indexing, spatial-vector search, and managing multi-model structures via **SurrealDB** or **PostgreSQL + PostGIS + pgvector**.
 
-## Module 4 — Retrieval-Augmented Generation (RAG)
-
-* Document loading, chunking, vector indexing, retrieval, and context injection.
+## Module 4 — Retrieval-Augmented Generation (RAG) & Agentic RAG
+* Document loading, chunking, vector indexing, retrieval, context injection, and system-specific retrieval loops for dynamic operational policies (e.g., weather response protocols).
 
 ## Module 5 — Agentic Architectures & Tool Use
-
 * **ReAct & Self-Correction Loops:** Reasoning, planning, tool execution, and error handling.
-* **Model Context Protocol (MCP):** Exposing real-time digital twin states natively to AI agents.
-* **Deterministic Solvers:** Coupling agent decisions with mathematical optimization engines (OR-Tools).
+* **Model Context Protocol (MCP):** Exposing real-time digital twin states (including weather telemetry) natively to AI agents.
+* **Deterministic Solvers:** Coupling agent decisions with mathematical optimization engines (OR-Tools) to compute weather-resilient routes.
 
 ## Module 6 — Multi-Agent Orchestration
-
 * Multi-agent collaboration, role decomposition, task delegation, and consensus mechanisms using **LangGraph**.
 
-## Module 7 — Capstone: The Agentic Transportation Digital Twin
-
-* Integrating traffic simulation engines, spatial databases, and MLLM multi-agent systems.
+## Module 7 — Capstone: The Weather-Aware Agentic Transportation Digital Twin
+* Integrating traffic simulation engines (SUMO/SimPy), spatial databases, and MLLM multi-agent systems to simulate extreme weather scenarios and real-time disruption responses.
 
 ---
 
@@ -58,15 +58,12 @@ By completing this repository:
 
 The capstone project models a **Generative Agentic Digital Twin** that bridges real-time telemetry with autonomous agentic action:
 
-1. **The Cyber-Physical Environment:** Simulated via **SUMO / SimPy** mimicking real-world intersections, transit lines, and vehicle fleets.
+1. **The Cyber-Physical Environment:** Simulated via **SUMO / SimPy** mimicking real-world intersections, transit lines, and vehicle fleets. Environmental variables (rain, snow, fog) are dynamically applied via the **TraCI** interface.
 2. **The Data & Context Layer:** Powered by **SurrealDB** or **PostGIS** for unified spatial, vector, and time-series storage, exposed to agents via the **Model Context Protocol (MCP)**.
 3. **The Multi-Agent Team (LangGraph & Local MLLMs):**
-* **Vision & Perception Agent:** Powered by **Muse Glimmer 30B** or **Qwen2-VL**, parsing live CCTV feeds, spatial bounding boxes, and intersection queue densities locally.
-* **Optimization Agent:** Translates agent insights into mathematical parameters for deterministic solvers (**Google OR-Tools**) to compute absolute minimum-latency paths.
-* **Disruption Response Agent:** Handles unexpected blockages, executing self-correction and failure-recovery protocols.
-
-
-4. **The Operator UI:** A conversational assistant enabling traffic engineers to query network metrics, execute simulations, and override controls using natural language.
+   * **Vision & Perception Agent:** Powered by **Muse Glimmer 30B** or **Qwen2-VL**, parsing live CCTV feeds and weather states.
+   * **Optimization Agent:** Translates agent insights into mathematical parameters for deterministic solvers (**Google OR-Tools**) to compute routes accounting for reduced capacity/speed.
+   * **Disruption Response Agent:** Handles unexpected blockages or severe weather conditions, executing self-correction and failure-recovery protocols.
 
 ---
 
@@ -75,8 +72,8 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
 | Category | SOTA Tools & Frameworks |
 | --- | --- |
 | Language | Python |
-| **Multimodal LLMs (Closed/Open)** | GPT-4o / Claude 3.5 Sonnet / **Meta Muse Glimmer (30B)** / **Qwen2-VL** |
-| **Agent Frameworks** | LangGraph / CrewAI |
+| **Multimodal LLMs (Local)** | **Meta Muse Glimmer (30B)** / **Qwen2-VL** |
+| **Agent Frameworks** | LangGraph / OpenAI Agents SDK |
 | **Agent Interoperability** | Model Context Protocol (MCP) |
 | **Optimization Solvers** | Google OR-Tools / Gurobi |
 | **Transport Simulation** | SimPy / SUMO / OSMnx / NetworkX |
@@ -85,49 +82,18 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
 
 ---
 
-# 📂 Repository Structure
-
-```text
-ai-assistant/                 <-- Your existing GitHub Repository Root
-├── docs/
-├── examples/
-│   ├── 01_llm_basics/
-│   ├── 02_mllm_vision_qwen_muse/
-│   ├── 03_surrealdb_and_postgis/
-│   ├── 04_rag_pipelines/
-│   ├── 05_mcp_agent_tools/
-│   └── 06_langgraph_workflows/
-├── projects/
-│   └── chat_with_pdf/
-├── datasets/
-├── images/
-├── notebooks/
-├── src/
-├── README.md                 <-- main project README
-└── twin/                     <-- 🌟 NEW ISOLATED PACKAGE & CODE FOLDER
-    ├── README.md             <-- Documentation for the Twin module
-    ├── requirements.txt      <-- Dependencies specific to the Twin system
-    ├── simulation.py         <-- SimPy / Traffic network physics engine
-    ├── mcp_server.py         <-- Model Context Protocol server exposing twin data
-    ├── agent_workflow.py     <-- LangGraph multi-agent orchestration loop
-    └── main.py               <-- Executable entry point
-
-```
-
----
-
 # 📖 Learning Progress
 
 | Lesson | Topic | Status |
 | --- | --- | --- |
 | 01 | LLMs & Transformer Foundations | ✅ |
-| 02 | Multimodal Vision Processing with Qwen2-VL & Muse Glimmer | ⏳ |
-| 03 | Unified Vector & Spatial Databases (SurrealDB/PostGIS) | ⏳ |
-| 04 | Retrieval-Augmented Generation (RAG) | ⏳ |
-| 05 | ReAct Agents, Failure Recovery & Model Context Protocol (MCP) | ⏳ |
-| 06 | Combining MLLMs with Mathematical Solvers (OR-Tools) | ⏳ |
-| 07 | Multi-Agent Orchestration with LangGraph | ⏳ |
-| 08 | Building the Transport Digital Twin (SUMO/SimPy) | ⏳ |
+| 02 | MLLM Perception (Vision & Weather) | ⏳ |
+| 03 | Unified Vector & Spatial Databases | ⏳ |
+| 04 | RAG & Agentic RAG | ⏳ |
+| 05 | ReAct Agents, Failure Recovery & MCP | ⏳ |
+| 06 | MLLMs + Mathematical Solvers (OR-Tools) | ⏳ |
+| 07 | Multi-Agent Orchestration (LangGraph) | ⏳ |
+| 08 | Building the Transport Digital Twin (SUMO) | ⏳ |
 | 09 | Production Deployment & Monitoring | ⏳ |
 
 ---
@@ -135,22 +101,21 @@ ai-assistant/                 <-- Your existing GitHub Repository Root
 # 📚 References & Reference Documents
 
 ### Foundation Models & MLLMs
+* **Attention Is All You Need** (Vaswani et al., 2017).
+* **Qwen2-VL: Enhancing Vision-Language Models for SOTA Visual Perception** (Alibaba Group).
+* **Muse Glimmer: Open-Weights Multimodal Agentic Models** (Meta).
 
-* **Attention Is All You Need** (Vaswani et al., 2017) — *Transformer architecture baseline.*
-* **Qwen2-VL: Enhancing Vision-Language Models for SOTA Visual Perception** (Alibaba Group, 2024–2025).
-* **Muse Glimmer: Open-Weights Multimodal Agentic Models for Local Hardware and Tool Use** (Meta Superintelligence Labs, 2026).
-
-### Agentic Frameworks & Protocols
-
+### Agentic Frameworks, Protocols & Digital Twins
 * **ReAct: Synergizing Reasoning and Acting in Language Models** (Yao et al., 2022).
-* **Model Context Protocol (MCP) Specification** — *Standardized context connectors for AI agents and digital twins.*
+* **Model Context Protocol (MCP) Specification** — *Standardized context connectors for AI agents.*
 * **LangGraph Documentation** — *Stateful multi-actor application architecture.*
+* **LLM-Powered Digital Twins for Interactive Urban Mobility Simulation** (OpenReview, 2025).
+* **GenAI-powered Multi-Agent Paradigm for Smart Urban Mobility** (Xu et al., 2024–2026).
 
-### Transportation Digital Twins & Spatial Systems
-
-* **SurrealDB Multi-Model Architecture & Agent Memory Whitepaper (2025–2026)**.
-* **When Digital Twins Meet Large Language Models: Realistic, Interactive, and Editable Simulation for Autonomous Driving** (IEEE ICRA).
+### Transportation & Environmental Spatial Systems
+* **SurrealDB Multi-Model Architecture Whitepaper**.
 * **OSMnx: New Methods for Complex Street Networks** (Boeing, 2017).
+* **Impact of Adverse Weather on Traffic Flow Characteristics** (Transportation Research Board).
 
 ---
 
