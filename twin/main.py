@@ -1,15 +1,20 @@
+"""
+Executable Entry Point for the Agentic Transportation Digital Twin
+Integrates asynchronous LangGraph workflow execution with SurrealDB persistence.
+"""
+
 import asyncio
 from twin.agent_workflow import compile_sota_twin_graph
 from twin.database import DigitalTwinDatabase
 
 async def main():
-    print("🚀 Initializing SOTA Agentic Transportation Digital Twin with SurrealDB...")
+    print("🚀 Initializing SOTA Agentic Transportation Digital Twin with SurrealDB & Weather-Awareness...")
     
     # 1. Initialize Database connection (using local embedded file store 'file://twin_storage.db')
     db = DigitalTwinDatabase(url="file://twin_storage.db")
     await db.connect()
     
-    # 2. Compile and run the SOTA LangGraph workflow
+    # 2. Compile and run the SOTA LangGraph workflow asynchronously
     app = compile_sota_twin_graph()
     
     initial_state = {
@@ -19,9 +24,12 @@ async def main():
         "congestion_level": "",
         "optimization_route_plan": "",
         "execution_status": "PENDING",
-        "retry_count": 0
+        "retry_count": 0,
+        "weather_condition": None,
+        "weather_directive": None
     }
     
+    print(f"\n📡 Executing asynchronous multi-agent graph for target: {initial_state['intersection_id']}")
     result = await app.ainvoke(initial_state)
     
     # 3. Permanently persist the execution state into SurrealDB
@@ -40,7 +48,9 @@ async def main():
     print("==================================================================")
     print(f"Target Node        : {result['intersection_id']}")
     print(f"Vision Feed Source : {result['camera_feed_path']}")
+    print(f"Weather State      : {result.get('weather_condition', 'N/A')}")
     print(f"MLLM Perception    : {result['perception_report']}")
+    print(f"Weather Policy     : {result.get('weather_directive', 'N/A')}")
     print(f"Directive & Solver : {result['optimization_route_plan']}")
     print(f"Final Status       : {result['execution_status']} 🎯")
     print("==================================================================")

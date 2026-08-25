@@ -1,17 +1,14 @@
+"""
+Real-Data LangGraph Workflow for the Transportation Digital Twin
+Integrates BjTT real-world time-series matrices and text logs with OR-Tools and ReAct.
+"""
+
 from typing import TypedDict, Optional
 from langgraph.graph import StateGraph, END
-from ortools.constraint_solver import routing_enums_pb2
-from ortools.constraint_solver import pywrapcp
+from ortools.constraint_solver import routing_enums_pb2, pywrapcp
 from twin.data_loader import BjTTDataLoader
 
-# Optional import for real local Qwen2-VL perception module integration
-try:
-    from twin.perception import TrafficVisionPerceiver
-    PERCEIVER_AVAILABLE = True
-except ImportError:
-    PERCEIVER_AVAILABLE = False
-
-class TransportationTwinState(TypedDict):
+class BjTTTwinState(TypedDict):
     intersection_id: str
     camera_feed_path: str
     perception_report: str
@@ -19,46 +16,41 @@ class TransportationTwinState(TypedDict):
     optimization_route_plan: str
     execution_status: str
     retry_count: int
-    # --- New Weather-Aware Fields Added ---
     weather_condition: Optional[str]
     weather_directive: Optional[str]
 
-# --- NODE 1: Multimodal Perception Agent (Qwen2-VL Integration) ---
-def multimodal_perception_node(state: TransportationTwinState) -> dict:
-    print(f"🤖 [Perception Agent - MLLM]: Analyzing feed '{state.get('camera_feed_path', 'N/A')}' for {state.get('intersection_id', 'Unknown')}...")
+# --- NODE 1: Real-Data Perception Agent (BjTT Ingestion) ---
+def real_bjtt_perception_node(state: BjTTTwinState) -> dict:
+    print(f"🤖 [Perception Agent - Universal Loader]: Parsing traffic feed records...")
     
-    perception_report = ""
-    weather_condition = "clear"
-    congestion_level = "MODERATE"
+    loader = BjTTDataLoader()
+    raw_record = loader.get_real_traffic_record(step_id=1)
     
-    # Try using real local Qwen2-VL perceiver if weights/dependencies are present, else fallback
-    if PERCEIVER_AVAILABLE and state.get('camera_feed_path'):
-        try:
-            # perceiver = TrafficVisionPerceiver()
-            # perception_report = perceiver.analyze_cctv_frame(state['camera_feed_path'])
-            pass
-        except Exception as e:
-            print(f"⚠️ Notice: Local model execution skipped ({e}), using simulation fallback.")
-            
-    if not perception_report:
-        # Fallback simulation capturing critical queue and weather context
-        perception_report = (
-            "Visual telemetry confirms dense queuing (approx. 55 vehicles) spanning 180 meters. "
-            "Heavy rain detected lowering visibility and surface traction."
-        )
-        weather_condition = "heavy rain"
-        congestion_level = "CRITICAL"
+    perception_report = raw_record["event_text"]
+    text_lower = perception_report.lower()
+    
+    # Check weather from record data or text
+    if "rain" in text_lower or "storm" in text_lower:
+        weather = "heavy rain"
+    elif "fog" in text_lower or "haze" in text_lower:
+        weather = "dense fog"
+    elif "snow" in text_lower or "ice" in text_lower:
+        weather = "snow"
+    else:
+        weather = "clear"
+
+    congestion_level = "CRITICAL" if any(row.get("congestion_level") == "CRITICAL" for row in raw_record["matrix_data"]) else "MODERATE"
 
     return {
-        "perception_report": perception_report,
+        "perception_report": f"[{raw_record['source'].upper()}] {perception_report}",
         "congestion_level": congestion_level,
-        "weather_condition": weather_condition
+        "weather_condition": weather
     }
 
 # --- NODE 2: ReAct Planning & Tool-Calling Agent ---
-def react_planning_node(state: TransportationTwinState) -> dict:
+def real_react_planning_node(state: BjTTTwinState) -> dict:
     weather = state.get('weather_condition', 'clear')
-    print(f"⚙️ [ReAct Agent]: Synthesizing perception data. Congestion: {state['congestion_level']} | Weather: {weather}")
+    print(f"⚙️ [ReAct Agent]: Synthesizing BjTT data. Congestion: {state['congestion_level']} | Weather: {weather}")
     
     if weather in ["heavy rain", "dense fog", "snow"]:
         weather_directive = f"Environmental hazard ({weather}): Enforcing speed restrictions and headway buffers."
@@ -76,8 +68,8 @@ def react_planning_node(state: TransportationTwinState) -> dict:
     }
 
 # --- NODE 3: Deterministic Optimization Solver (Google OR-Tools + Weather Friction) ---
-def google_ortools_solver_node(state: TransportationTwinState) -> dict:
-    print("🧮 [Optimization Solver]: Executing Google OR-Tools vehicle routing with weather friction multipliers...")
+def real_ortools_solver_node(state: BjTTTwinState) -> dict:
+    print("🧮 [Optimization Solver]: Executing Google OR-Tools vehicle routing with real BjTT matrix scale...")
     
     try:
         weather = state.get('weather_condition', 'clear')
@@ -89,7 +81,7 @@ def google_ortools_solver_node(state: TransportationTwinState) -> dict:
         
         def distance_callback(from_index, to_index):
             base_dist = abs(from_index - to_index) * 10
-            return int(base_dist * mult) # Apply weather friction penalty
+            return int(base_dist * mult)
 
         transit_callback_index = routing.RegisterTransitCallback(distance_callback)
         routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)
@@ -120,29 +112,28 @@ def google_ortools_solver_node(state: TransportationTwinState) -> dict:
         }
 
 # --- NODE 4: Failure Recovery & Self-Correction Node ---
-def failure_recovery_node(state: TransportationTwinState) -> dict:
-    print(f"🔄 [Failure Recovery Agent]: Handling exception/sub-optimal solve. Retries: {state.get('retry_count', 0)}")
+def real_failure_recovery_node(state: BjTTTwinState) -> dict:
+    print(f"🔄 [Failure Recovery Agent]: Handling exception. Retries: {state.get('retry_count', 0)}")
     return {
-        "optimization_route_plan": "Fallback applied: Actuating hardcoded fail-safe regional green wave corridor with emergency weather limits.",
+        "optimization_route_plan": "Fallback applied: Actuating fail-safe regional green wave corridor.",
         "execution_status": "RESOLVED_FALLBACK"
     }
 
-# Conditional edge routing logic for Self-Correction
-def check_execution_health(state: TransportationTwinState) -> str:
+def check_execution_health(state: BjTTTwinState) -> str:
     if state["execution_status"] == "RESOLVED_SUCCESS":
         return "end"
-    elif state["execution_status"] == "FAILED_RETRY" or state["execution_status"] == "ERROR":
+    elif state["execution_status"] in ["FAILED_RETRY", "ERROR"]:
         return "recover"
     return "end"
 
 # --- COMPILE STATE GRAPH ---
-def compile_sota_twin_graph():
-    workflow = StateGraph(TransportationTwinState)
+def compile_bjtt_twin_graph():
+    workflow = StateGraph(BjTTTwinState)
     
-    workflow.add_node("perception", multimodal_perception_node)
-    workflow.add_node("planner", react_planning_node)
-    workflow.add_node("solver", google_ortools_solver_node)
-    workflow.add_node("recovery", failure_recovery_node)
+    workflow.add_node("perception", real_bjtt_perception_node)
+    workflow.add_node("planner", real_react_planning_node)
+    workflow.add_node("solver", real_ortools_solver_node)
+    workflow.add_node("recovery", real_failure_recovery_node)
     
     workflow.set_entry_point("perception")
     workflow.add_edge("perception", "planner")
