@@ -10,7 +10,7 @@ Rather than simply reading about these topics, this repository focuses on buildi
 
 ---
 
-# 🎯 Multimodal Transportation Digital Twin Architecture
+# 🎯 Multimodal Transportation Digital Twin
 
 ![Agentic Transportation Digital Twin](images/transportation_digital_twin.gif)
 
