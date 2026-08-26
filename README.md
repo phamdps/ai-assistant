@@ -10,9 +10,9 @@ Rather than simply reading about these topics, this repository focuses on buildi
 
 ---
 
-# 🎯 Architecture Diagram
+# 🎯 Multimodal Transportation Digital Twin Architecture
 
-![Technical Architecture: Agentic Transportation Digital Twin](images/architecture.png)
+![Agentic Transportation Digital Twin](images/transportation_digital_twin.gif)
 
 ---
 
@@ -89,6 +89,13 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
    * **Optimization Agent:** Translates agent insights into mathematical parameters for deterministic solvers (**Google OR-Tools**) to compute routes accounting for reduced capacity/speed.
    * **Disruption Response Agent:** Handles unexpected blockages or severe weather conditions, executing self-correction and failure-recovery protocols.
    * **Meta-Adaptation & XAI Auditor:** Dynamically shifts agent weights based on historical context and logs step-by-step explanatory rationales for every control decision.
+
+---
+
+# 🎯 Architecture Diagram
+
+![Technical Architecture: Agentic Transportation Digital Twin](images/architecture.png)
+
 
 ---
 
