@@ -10,9 +10,9 @@ Rather than simply reading about these topics, this repository focuses on buildi
 
 ---
 
-# 🎯 Cognitive Transportation Digital Twin
+# 🎯 Explainable Autonomous Cognitive Transportation Digital Twin
 
-![Cognitive Transportation Digital Twin](images/transportation_digital_twin.gif)
+![Transportation Digital Twin](images/explainable.gif)
 
 ---
 
