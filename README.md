@@ -16,6 +16,23 @@ Rather than simply reading about these topics, this repository focuses on buildi
 
 ---
 
+# 🧩 Continual Multimodal Learning for Autonomous Cognitive Twin
+
+A transportation digital twin that jointly learns from heterogeneous observations, maintains episodic memory, detects distribution/concept drift, and uses physics/network constraints can adapt to changing transportation conditions more accurately and safely than periodically retrained or static multimodal models.
+
+![Continual Multimodal Learning](images/continual_learning.gif)
+
+
+---
+
+# Meta-Learning for Rapid Spatial Adaptation
+
+---
+
+# Multi-Agent Orchestration
+
+---
+
 # 🎯 Objectives
 
 By completing this repository:
