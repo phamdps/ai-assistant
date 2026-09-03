@@ -69,9 +69,24 @@ An example demo of the X-ACTDT architecture idea bridging real-time telemetry wi
 | **Unified Database & Spatial** | **SurrealDB** (Graph + Spatial + Time-Series + Vectors) *or* PostGIS + pgvector |
 | **Backend & Frontend** | FastAPI, Streamlit, Docker Compose |
 
----
+# 🧩 4. Continual Multimodal Learning Ablation
 
-# 🚦 4. The Control Center & Live Dashboard
+Operating a digital twin in a dynamic urban environment like San Francisco requires continuous adaptation to shifting conditions. Static multimodal models quickly degrade when confronted with novel seasonal weather transitions (such as transitioning from dry summer traffic flows to heavy winter storms or dense coastal fog).
+
+<div align="center">
+
+![Continual Learning in A Transportation Digital Twin](images/continual_learning.gif)
+
+</div>
+
+To overcome this, X-ACTDT integrates a robust **Continual Multimodal Learning** paradigm into the twin architecture:
+
+* **Lifelong Data Ingestion:** The system jointly learns from heterogeneous observations across time, updating its representations without discarding past knowledge.
+* **Episodic Memory & Rehearsal:** Utilizing parameter-efficient continual learning and rehearsal buffers to retain historical baseline behaviors during rare events.
+* **Drift Detection:** Automatically identifies distribution and concept drift caused by sudden construction projects, policy changes, or long-term urban development.
+* **Physics & Network Constraint Integration:** Blends data-driven updates with deterministic physical rules to ensure that continual updates remain safe, stable, and mathematically sound.
+
+# 🚦 5. The Control Center & Live Dashboard
 
 <div align="center">
 
@@ -90,7 +105,7 @@ The X-ACTDT Control Center is an advanced, real-time multi-agent urban intellige
 
 ---
 
-# 📚 5. The R&D Roadmap: Journey to X-ACTDT
+# 📚 6. The R&D Roadmap: Journey to X-ACTDT
 
 This curriculum is structured into progressive phases leading directly to the deployment of the capstone system.
 
