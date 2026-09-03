@@ -34,6 +34,13 @@ The core architecture of the X-ACTDT framework is engineered as a cognitive, clo
 
 To handle real-world volatility, **meta-learning** algorithms enable the system to rapidly adapt its control logic to entirely unfamiliar urban layouts or rare intersection topologies with minimal few-shot data, while **continual learning** mechanisms persistently guard against catastrophic forgetting as environmental conditions shift across seasonal weather cycles. Crucially, **explainability** is embedded natively across every tier of this pipeline: attention rollouts, integrated gradients, and concept bottleneck layers continuously unpack black-box model decisions, producing human-interpretable audit trails and causal rationales for every automated intervention.
 
+# 🏙️ 3. Live Demonstration: San Francisco Transportation Data
+
+To bridge theoretical concepts with real-world complexity, the X-ACTDT framework features a fully operational demo powered by real-world urban and transit telemetry from San Francisco. This simulation leverages open-source spatial data from **OpenStreetMap (OSMnx)**, municipal transit feeds, and historical traffic patterns to recreate complex San Francisco corridors (such as Market Street or the Bay Bridge approach nodes) inside the **SUMO** environment.
+
+By grounding the digital twin in actual city topology, the multi-agent system is tested against realistic urban challenges—including dense gridlocks, sudden public transit disruptions, and rolling coastal fog events that severely degrade camera visibility. Operators can observe how the MLLM perception layer processes San Francisco's distinct topography, how the meta-learning engine adapts routing logic to unfamiliar neighborhood grids, and how the deterministic solvers compute resilient alternative paths in real time.
+
+
 ![Technical Architecture: Agentic Transportation Digital Twin](images/architecture.png)
 
 An example demo of the X-ACTDT architecture idea bridging real-time telemetry with autonomous agentic action is illustrated in the above figure.
@@ -64,7 +71,7 @@ An example demo of the X-ACTDT architecture idea bridging real-time telemetry wi
 
 ---
 
-# 🚦 3. The Control Center & Live Dashboard
+# 🚦 4. The Control Center & Live Dashboard
 
 <div align="center">
 
@@ -83,7 +90,7 @@ The X-ACTDT Control Center is an advanced, real-time multi-agent urban intellige
 
 ---
 
-# 📚 4. The R&D Roadmap: Journey to X-ACTDT
+# 📚 5. The R&D Roadmap: Journey to X-ACTDT
 
 This curriculum is structured into progressive phases leading directly to the deployment of the capstone system.
 
