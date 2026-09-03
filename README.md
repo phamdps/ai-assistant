@@ -1,103 +1,42 @@
 <div align="center">
 
-# 🚀 AI, LLM, RAG, MLLMs, Meta-Learning, Continual Learning, XAI & Agentic Transportation Digital Twins
+# 🚀 X-ACTDT: Explainable Autonomous Cognitive Transportation Digital Twin
 
 </div>
 
-This repository documents an end-to-end journey into **Large Language Models (LLMs)**, **Multimodal Large Language Models (MLLMs)**, **Meta-Learning**, **Continual Learning**, **Multimodal Explainability (XAI)**, **Retrieval-Augmented Generation (RAG)**, **Vector Databases**, and **Agentic AI Systems** applied to complex cyber-physical environments.
-
-Rather than simply reading about these topics, this repository focuses on building state-of-the-art, simulation-backed **Agentic Digital Twins** from the ground up using cutting-edge open and proprietary models capable of adapting, learning, and explaining their actions in real time.
+This repository serves as the end-to-end R&D and engineering workbench for **X-ACTDT (Explainable Autonomous Cognitive Transportation Digital Twin)**. Rather than treating advanced AI concepts in isolation, every module, model, and architecture explored here is intentionally sequenced to prepare, construct, and deploy components of the X-ACTDT framework—a production-grade system combining Multimodal Large Language Models (MLLMs), Meta-Learning, Continual Learning, and Real-Time Optimization to solve complex cyber-physical mobility challenges.
 
 ---
 
-# 🎯 Explainable Autonomous Cognitive Transportation Digital Twin
+# 🎯 1. Project Vision & Core Objectives
 
-![Transportation Digital Twin](images/explainable.gif)
+Modern transportation networks face severe vulnerabilities: unexpected weather anomalies, sudden traffic surges, and the opacity of "black-box" artificial intelligence. **X-ACTDT** solves these challenges by combining simulation-backed digital twins with cognitive, self-adapting, and fully transparent AI agents.
 
----
-
-# 🧩 Continual Multimodal Learning for Autonomous Cognitive Twin
-
-A transportation digital twin that jointly learns from heterogeneous observations, maintains episodic memory, detects distribution/concept drift, and uses physics/network constraints can adapt to changing transportation conditions more accurately and safely than periodically retrained or static multimodal models.
-
-![Continual Multimodal Learning](images/continual_learning.gif)
-
-
----
-
-# Meta-Learning for Rapid Spatial Adaptation
+By completing this repository and building the X-ACTDT system, you will achieve mastery in:
+* **Multimodal Perception:** Parsing live CCTV feeds, maps, and visual telemetry using state-of-the-art MLLMs like **Qwen2-VL** and Meta's **Muse Glimmer**.
+* **Agentic Reasoning & Tool-Calling:** Designing autonomous loops using the **ReAct framework** and **Model Context Protocol (MCP)** for real-time failure recovery.
+* **Rapid Spatial Adaptation:** Implementing **Meta-Learning** algorithms (MAML, Reptile) for few-shot adaptation to entirely new urban layouts.
+* **Lifelong Learning:** Preventing catastrophic forgetting via **Continual Learning** strategies when transitioning across seasonal weather shifts.
+* **Multimodal Explainability (XAI):** Unpacking model decisions using attention rollouts and concept bottlenecks to generate human-interpretable audit trails.
+* **Deterministic Optimization:** Interfacing AI agents with mathematical optimization solvers (e.g., **Google OR-Tools**) for optimal, weather-resilient routing.
 
 ---
 
-# Multi-Agent Orchestration
-
----
-
-# 🎯 Objectives
-
-By completing this repository:
-
-* Master Large Language Models and multi-agent coordination loops.
-* Leverage state-of-the-art **Multimodal LLMs** (such as **Qwen2-VL** and Meta's **Muse Glimmer**) to parse live CCTV feeds, maps, and visual telemetry.
-* Build autonomous **AI Agents** capable of reasoning, planning, tool-calling, and failure recovery using the **ReAct framework** and **Model Context Protocol (MCP)**.
-* Implement **Meta-Learning** algorithms to enable few-shot adaptation to entirely new urban layouts or unseen intersection topologies.
-* Prevent catastrophic forgetting via **Continual Learning** strategies when transitioning across seasonal weather shifts.
-* Unpack black-box decisions using **Multimodal Explainability (XAI)** techniques to generate human-interpretable audit trails.
-* Interface MLLMs and AI agents with deterministic mathematical optimization solvers (e.g., **Google OR-Tools**) for optimal routing.
-* Design, simulate, and deploy a production-grade **Transportation Digital Twin** that is **Environment-Aware** (weather, visibility, road conditions).
-
----
-
-# 📚 Project Roadmap
-
-## Module 1 — Foundations
-* Introduction to LLMs, Transformers, Attention Mechanisms, and Context Windows.
-
-## Module 2 — Advanced Multimodal Foundations (MLLMs) & Perception
-* Vision-Language Models, spatial-temporal grounding, and processing live traffic camera streams (CCTV) using **Qwen2-VL** and **Meta Muse Glimmer**.
-* **Weather & Environmental Perception:** Training agents to detect visibility, precipitation, and adverse surface conditions from video streams.
-
-## Module 3 — Embeddings & Unified Digital Twin Databases
-* Vector indexing, spatial-vector search, and managing multi-model structures via **SurrealDB** or **PostgreSQL + PostGIS + pgvector**.
-
-## Module 4 — Retrieval-Augmented Generation (RAG) & Agentic RAG
-* Document loading, chunking, vector indexing, retrieval, context injection, and system-specific retrieval loops for dynamic operational policies (e.g., weather response protocols).
-
-## Module 5 — Agentic Architectures & Tool Use
-* **ReAct & Self-Correction Loops:** Reasoning, planning, tool execution, and error handling.
-* **Model Context Protocol (MCP):** Exposing real-time digital twin states (including weather telemetry) natively to AI agents.
-* **Deterministic Solvers:** Coupling agent decisions with mathematical optimization engines (OR-Tools) to compute weather-resilient routes.
-
-## Module 6 — Multi-Agent Orchestration
-* Multi-agent collaboration, role decomposition, task delegation, and consensus mechanisms using **LangGraph**.
-
-## Module 7 — Advanced Multimodal Architectures (MLLMs in Depth)
-* Cross-modal alignment, vision-language projectors, and native tokenization of continuous video feeds and telemetry tensors.
-
-## Module 8 — Meta-Learning for Rapid Spatial Adaptation
-* **Few-Shot Adaptation to Unseen Urban Zones:** Utilizing Model-Agnostic Meta-Learning (MAML) and Reptile loops to allow the digital twin to instantly adapt its control logic to unfamiliar layouts with minimal local data.
-
-## Module 9 — Continual Learning & Mitigating Catastrophic Forgetting
-* **Lifelong Urban Adaptation:** Mitigating forgetting when the digital twin encounters drastic seasonal transitions (e.g., dry summer flows to heavy winter blizzards) using parameter-efficient continual learning and rehearsal buffers.
-
-## Module 10 — Multimodal Explainability (XAI) & Auditing
-* **Interpretable Agent Decisions:** Unpacking black-box MLLM choices via multimodal attention rollout, integrated gradients, and concept bottleneck layers.
-* **Causal Audit Trails:** Generating human-readable rationale graphs explaining why optimization routes were modified.
-
-## Module 11 — Capstone: The Weather-Aware Agentic Transportation Digital Twin
-* Integrating traffic simulation engines (SUMO/SimPy), spatial databases, and MLLM multi-agent systems to simulate extreme weather scenarios and real-time disruption responses.
-
----
+# 🏗️ 2. Core Architecture
 
 <div align="center">
 
-# 🧠 Spotlight: SOTA Architecture of the Transportation Digital Twin
-
-![Layer Architecture: Agentic Transportation Digital Twin](images/architecture.svg)
+![Layer Architecture: Agentic Transportation Digital Twin](images/X-ACTDT.gif)
 
 </div>
 
-The capstone project models a **Generative Agentic Digital Twin** that bridges real-time telemetry with autonomous agentic action:
+The core architecture of the X-ACTDT framework is engineered as a cognitive, closed-loop cyber-physical system where **Multimodal Perception**, **Meta-Learning**, **Continual Learning**, **Reinforcement Learning**, and **Explainability (XAI)** operate in continuous concert. At its foundation, **multimodal intelligence** (powered by advanced vision-language models) ingests heterogeneous data streams—such as live CCTV feeds, spatial telemetry, and dynamic weather sensors—to construct a unified, real-time situational awareness layer. This perceptual state is dynamically interpreted by **reinforcement learning** agents that optimize traffic signal timings and routing policies against physical constraints. 
+
+To handle real-world volatility, **meta-learning** algorithms enable the system to rapidly adapt its control logic to entirely unfamiliar urban layouts or rare intersection topologies with minimal few-shot data, while **continual learning** mechanisms persistently guard against catastrophic forgetting as environmental conditions shift across seasonal weather cycles. Crucially, **explainability** is embedded natively across every tier of this pipeline: attention rollouts, integrated gradients, and concept bottleneck layers continuously unpack black-box model decisions, producing human-interpretable audit trails and causal rationales for every automated intervention.
+
+![Technical Architecture: Agentic Transportation Digital Twin](images/architecture.png)
+
+An example demo of the X-ACTDT architecture idea bridging real-time telemetry with autonomous agentic action is illustrated in the above figure.
 
 1. **The Cyber-Physical Environment:** Simulated via **SUMO / SimPy** mimicking real-world intersections, transit lines, and vehicle fleets. Environmental variables (rain, snow, fog) are dynamically applied via the **TraCI** interface.
 2. **The Data & Context Layer:** Powered by **SurrealDB** or **PostGIS** for unified spatial, vector, and time-series storage, exposed to agents via the **Model Context Protocol (MCP)**.
@@ -107,16 +46,8 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
    * **Disruption Response Agent:** Handles unexpected blockages or severe weather conditions, executing self-correction and failure-recovery protocols.
    * **Meta-Adaptation & XAI Auditor:** Dynamically shifts agent weights based on historical context and logs step-by-step explanatory rationales for every control decision.
 
----
 
-# 🎯 Architecture Diagram
-
-![Technical Architecture: Agentic Transportation Digital Twin](images/architecture.png)
-
-
----
-
-# 🛠 Technology Stack
+## 🛠 Technology Stack
 
 | Category | SOTA Tools & Frameworks |
 | --- | --- |
@@ -133,7 +64,52 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
 
 ---
 
-# 📖 Learning Progress
+# 🚦 3. The Control Center & Live Dashboard
+
+<div align="center">
+
+![Transportation Digital Twin](images/agentic_control.png)
+
+</div>
+
+The X-ACTDT Control Center is an advanced, real-time multi-agent urban intelligence system powered by **LangGraph**, **Google OR-Tools**, and **SurrealDB**. It monitors regional traffic telemetry, evaluates weather conditions, executes automated policy plans, records continual adaptation metrics, and exposes XAI audit trails to eliminate traffic bottlenecks safely.
+
+## ✨ Key Dashboard Features
+* **🤖 Interactive Multi-Agent Workflow Graph:** Visualizes live data packet motion in real time across LangGraph nodes (`Perception`, `ReAct Planner`, `Meta-Adapter`, `OR-Tools Matrix`, `Recovery Handler`, and `XAI Auditor`).
+* **🕹️ Flexible Simulation Playback Modes:** Supports single-step inspections or continuous automated multi-step loops (expanding up to 20+ simulation steps).
+* **💬 Live Node-to-Directive Mapping & XAI Traces:** Displays real-time agent reasoning text, feature attribution heatmaps, and operator recommendations directly below the workflow graph.
+* **🔍 Input Data Deep-Dive Tab:** Allows operators to inspect raw JSON payloads, environmental overrides, and sensor speed distributions to compare *why* and *when* agents trigger recovery protocols.
+* **💾 SurrealDB Audit Trail:** Automatically persists execution records, meta-learning adaptation weights, and historical telemetry for post-hoc analysis.
+
+---
+
+# 📚 4. The R&D Roadmap: Journey to X-ACTDT
+
+This curriculum is structured into progressive phases leading directly to the deployment of the capstone system.
+
+## Phase I: Foundations & Multimodal Perception (Modules 1–3)
+* Introduction to LLMs, Transformers, Attention Mechanisms, and Context Windows.
+* **Vision-Language Models:** Spatial-temporal grounding and processing live traffic camera streams (CCTV) using **Qwen2-VL** and **Meta Muse Glimmer**.
+* **Weather & Environmental Perception:** Training agents to detect visibility, precipitation, and adverse surface conditions from video streams.
+* Vector indexing, spatial-vector search, and managing multi-model structures via **SurrealDB** or **PostgreSQL + PostGIS + pgvector**.
+
+## Phase II: Agentic Reasoning & Optimization (Modules 4–7)
+* **Agentic RAG:** Document loading, chunking, vector indexing, retrieval, context injection, and system-specific retrieval loops for dynamic operational policies.
+* **ReAct & Self-Correction Loops:** Reasoning, planning, tool execution, and error handling.
+* **Model Context Protocol (MCP):** Exposing real-time digital twin states natively to AI agents.
+* **Deterministic Solvers:** Coupling agent decisions with mathematical optimization engines (**Google OR-Tools**) to compute weather-resilient routes.
+* **Multi-Agent Orchestration:** Collaboration, role decomposition, task delegation, and consensus mechanisms using **LangGraph**.
+
+## Phase III: Advanced Adaptation & Explainability (Modules 8–11)
+* **Advanced MLLM Architectures:** Cross-modal alignment, vision-language projectors, and native tokenization of continuous video feeds and telemetry tensors.
+* **Meta-Learning for Rapid Spatial Adaptation:** Utilizing Model-Agnostic Meta-Learning (MAML) and Reptile loops to allow the digital twin to instantly adapt its control logic to unfamiliar layouts.
+* **Continual Learning & Mitigating Catastrophic Forgetting:** Managing lifelong urban adaptation across seasonal weather shifts using parameter-efficient continual learning and rehearsal buffers.
+* **Multimodal Explainability (XAI):** Unpacking black-box MLLM choices via multimodal attention rollout, integrated gradients, concept bottleneck layers, and causal audit trails.
+
+## Phase IV: Capstone Deployment (Modules 12–13)
+* **The Weather-Aware Agentic Transportation Digital Twin:** Integrating traffic simulation engines (**SUMO/SimPy**), spatial databases, and MLLM multi-agent systems into the final production deployment.
+
+## 📈 Learning Progress Tracker
 
 | Lesson | Topic | Status |
 | --- | --- | --- |
@@ -153,7 +129,7 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
 
 ---
 
-# 📚 References & Reference Documents
+# 📖 5. References & Academic Foundation
 
 ### Foundation Models, MLLMs & Adaptation
 * **Attention Is All You Need** (Vaswani et al., 2017).
@@ -178,40 +154,8 @@ The capstone project models a **Generative Agentic Digital Twin** that bridges r
 
 <div align="center">
 
-# 🚦 Agentic Transportation Digital Twin Control Center
-
-</div>
-
-An advanced, real-time multi-agent urban intelligence system powered by **LangGraph**, **Google OR-Tools**, and **SurrealDB**. This control center monitors regional traffic telemetry, evaluates weather conditions, executes automated policy plans, records continual adaptation metrics, and exposes XAI audit trails to eliminate traffic bottlenecks safely.
-
----
-
-## ✨ Key Dashboard Features
-
-* **🤖 Interactive Multi-Agent Workflow Graph:** Visualizes live data packet motion in real time across LangGraph nodes (`Perception`, `ReAct Planner`, `Meta-Adapter`, `OR-Tools Matrix`, `Recovery Handler`, and `XAI Auditor`).
-* **🕹️ Flexible Simulation Playback Modes:** Supports single-step inspections or continuous automated multi-step loops (expanding up to 20+ simulation steps).
-* **💬 Live Node-to-Directive Mapping & XAI Traces:** Displays real-time agent reasoning text, feature attribution heatmaps, and operator recommendations directly below the workflow graph.
-* **🔍 Input Data Deep-Dive Tab:** Allows operators to inspect raw JSON payloads, environmental overrides, and sensor speed distributions to compare *why* and *when* agents trigger recovery protocols.
-* **💾 SurrealDB Audit Trail:** Automatically persists execution records, meta-learning adaptation weights, and historical telemetry for post-hoc analysis.
-
----
-
-## 🏗️ Architecture & Workflow
-
-The digital twin processes traffic streams through a directed graph state machine:
-
-1. **🤖 Perception Agent:** Ingests camera feeds and sensor metrics to assess surface congestion levels.
-2. **🧠 Meta-Adapter Node:** Instantly calibrates parameters for unseen networks using meta-learning priors.
-3. **⚙️ ReAct Planner:** Evaluates contextual scenarios and determines tactical response policies.
-4. **🧮 OR-Tools Matrix:** Applies optimization algorithms with weather friction multipliers (rain, fog, snow) to compute optimal routing.
-5. **🔄 Recovery Handler:** Engages automatically during critical bottlenecks or incidents to dispatch emergency routing.
-6. **📊 XAI Auditor:** Computes attention rollouts and provides step-by-step natural language explanations for compliance.
-7. **🎯 Active Control:** The success node that locks in and applies final signal cadences and corridor directives.
-
-![Dashboard](images/agentic_control.png)
-
----
-
 # 📈 Contributions & ⭐ Support
 
-Contributions, suggestions, and pull requests are welcome! If you find this cutting-edge repository helpful, please consider giving it a ⭐.
+Contributions, suggestions, and pull requests are welcome! If you find this R&D repository and the X-ACTDT project helpful, please consider giving it a ⭐.
+
+</div>
