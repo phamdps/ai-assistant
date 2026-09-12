@@ -86,7 +86,53 @@ To overcome this, X-ACTDT integrates a robust **Continual Multimodal Learning** 
 * **Drift Detection:** Automatically identifies distribution and concept drift caused by sudden construction projects, policy changes, or long-term urban development.
 * **Physics & Network Constraint Integration:** Blends data-driven updates with deterministic physical rules to ensure that continual updates remain safe, stable, and mathematically sound.
 
-# 🚦 5. The Control Center & Live Dashboard
+
+# 🔍 5. Reference Explainabilities (XAI) Framework
+
+To establish trust, accountability, and safety in cyber-physical infrastructure, **X-ACTDT** embeds native Explainable AI (XAI) mechanisms directly into the Multimodal Large Language Model (MLLM)—the cognitive brain powering the digital twin. Rather than treating black-box neural networks as opaque decision-makers, the architecture exposes transparent, verifiable visual and causal audit trails at every stage of the perception-to-action cycle.
+
+<div align="center">
+
+![Multimodal Explainability Architecture](images/ExplainableMultimodal.png)
+
+*Figure 5.1: Multimodal Perception-to-Action Explainability Architecture.*
+
+</div>
+
+### 👁️ Multimodal Visual & Spatial Attribution
+* **Cross-Modal Attention Rollouts:** Traces high-level agent reasoning back to specific spatiotemporal tokens across camera video streams, LiDAR point clouds, and topological map layers.
+* **Feature Heatmaps & Visual Grounding:** Highlights precise environmental triggers—such as sudden dense fog patches, lane blockages, or high-density intersection queues—that directly activate perception alerts.
+* **Concept Bottleneck Layers:** Interposes human-understandable intermediate concepts (e.g., *"Reduced Visibility > 70%"*, *"Gridlock Risk Index > 0.85"*) before passing parameters to deterministic optimization routines.
+
+<div align="center">
+
+![XAI Techniques Comparison](images/ExplainableTechniques.png)
+
+*Figure 5.2: State-of-the-Art Multimodal Interpretability Techniques.*
+
+</div>
+
+### 🛠️ State-of-the-Art Interpretability Suite
+To achieve full auditability, the digital twin orchestrates a suite of complementary state-of-the-art XAI methodologies:
+* **Gradient & Feature Attribution (Captum & Integrated Gradients):** Measures the exact mathematical contribution of pixel regions and sensor input vectors toward downstream control decisions.
+* **Game-Theoretic SHAP Value Analysis:** Quantifies feature importance across heterogeneous data feeds to clarify how environmental factors (e.g., rainfall rate vs. vehicle speed) balance during decision-making.
+* **Causal Trace Logging:** Records step-by-step token generation chains within the MLLM brain, enabling safety auditors to reconstruct the exact reasoning path preceding any autonomous intervention.
+
+<div align="center">
+
+![X-ACTDT Core Explainability Overview](images/X_ACTDT.png)
+
+*Figure 5.3: End-to-End X-ACTDT Autonomous Decision & Explainability Flow.*
+
+</div>
+
+### 🔄 Closed-Loop Auditability & Operator Verification
+The entire perception, reasoning, and control loop feeds real-time explainability traces into the operator interface. By continuously mapping raw sensor inputs to human-readable visual overlays and feature importance scores, X-ACTDT ensures that every automated routing policy, traffic light timing update, and emergency recovery protocol is fully explainable, safety-verified, and open to human-in-the-loop oversight.
+
+---
+
+
+# 🚦 6. The Control Center & Live Dashboard
 
 <div align="center">
 
@@ -105,7 +151,7 @@ The X-ACTDT Control Center is an advanced, real-time multi-agent urban intellige
 
 ---
 
-# 📚 6. The R&D Roadmap: Journey to X-ACTDT
+# 📚 7. The R&D Roadmap: Journey to X-ACTDT
 
 This curriculum is structured into progressive phases leading directly to the deployment of the capstone system.
 
@@ -151,7 +197,7 @@ This curriculum is structured into progressive phases leading directly to the de
 
 ---
 
-# 📖 5. References & Academic Foundation
+# 📖 8. References & Academic Foundation
 
 ### Foundation Models, MLLMs & Adaptation
 * **Attention Is All You Need** (Vaswani et al., 2017).
