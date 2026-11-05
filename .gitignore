@@ -223,8 +223,6 @@ xrefs/
 # Upload final
 exercises/
 docs/
-twin_storage.db/
-twin_bjtt_storage.db/
 examples/
 twin/dashboard.py
 twin/dashboard_bjtt.py
